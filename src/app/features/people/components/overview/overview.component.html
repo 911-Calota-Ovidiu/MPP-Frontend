@@ -1,0 +1,18 @@
+<h2>People</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>ADDRESS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let adult of adults;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{adult.name}}</td>
+            <td>{{adult.address}}</td>
+        </tr>
+    </tbody>
+</table>

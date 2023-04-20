@@ -1,0 +1,8 @@
+.navbar{
+    background-color: aqua;
+    height:70px;
+}
+.text .navbar{
+    color:white;
+    margin-right: 1rem;
+}
