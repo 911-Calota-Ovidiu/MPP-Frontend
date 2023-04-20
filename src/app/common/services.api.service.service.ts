@@ -12,6 +12,8 @@ export class ApiService {
 
   getAdults(): Observable<Adult[]>{
     return this.http.get('http://13.49.158.246:8080/adult') as Observable<Adult[]>;
-
+  }
+  getAvgChildAger(): Observable<number>{
+    return this.http.get('http://13.49.158.246:8080/child/avg') as Observable<number>;
   }
 }
