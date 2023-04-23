@@ -1,0 +1,27 @@
+<h2>Info about adult</h2>
+<ng-container *ngIf="adult">
+
+    
+    <table>
+      <thead>
+        <tr>
+          <th  >ID</th>
+          <th  >Name</th>
+          <th  >Capacity</th>
+          <th  >Address</th>
+          <th  >Reputation</th>
+          <th  >HasService</th>
+          <th  >OffersTradeIn</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td  >{{ adult['id'] }}</td>
+          <td  >{{ adult['name'] }}</td>
+          <td  >{{ adult['age'] }}</td>
+          <td  >{{ adult['address'] }}</td>
+          <td  >{{ adult['birthdate'] }}</td>
+          <td  >{{ adult['eyecolor'] }}</td>
+        </tr>
+      </tbody>
+    </table>

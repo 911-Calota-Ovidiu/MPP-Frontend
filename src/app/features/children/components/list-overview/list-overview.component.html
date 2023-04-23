@@ -1,0 +1,22 @@
+<h2>Children</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>ADDRESS</th>
+            <th (click)="sortBy('famid')">FAMILY ID</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let child of children;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{child.name}}</td>
+            <td>{{child.address}}</td>
+            <td>{{child.famid}}</td>
+            <td><a>D</a>&nbsp;<a>U</a></td>
+        </tr>
+    </tbody>
+</table>
