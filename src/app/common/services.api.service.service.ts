@@ -13,7 +13,7 @@ export class ApiService {
   constructor(private http:HttpClient) { }
   address:string='http://13.50.225.198:8080'
   getAdults(): Observable<AdultDTO[]>{
-    return this.http.get(this.address+'/adult') as Observable<AdultDTO[]>;
+    return this.http.get(this.address+'/family') as Observable<AdultDTO[]>;
   }
   getAvgChildAger(): Observable<number>{
     return this.http.get(this.address+'/child/avg') as Observable<number>;
