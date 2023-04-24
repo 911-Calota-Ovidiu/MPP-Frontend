@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path:"children",
-    component:ListOverviewComponent
+    component:StatisticsOverviewComponent
   },
   {
     path:"adult/add",
