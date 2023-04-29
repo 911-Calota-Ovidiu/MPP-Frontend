@@ -8,7 +8,7 @@ import { Adult } from 'src/app/features/people/components/overview/models/adults
   styleUrls: ['./statistics-overview.component.css']
 })
 export class StatisticsOverviewComponent implements OnInit {
-  avg:number=0;
+  avg?:number;
   constructor(private apiSvc: ApiService){}
   ngOnInit(): void {
     this.apiSvc.getAvgChildAger()

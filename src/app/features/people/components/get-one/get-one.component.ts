@@ -17,7 +17,7 @@ export class GetOneComponent {
       this.id = params['id'];
       this.apiSvc.getAdultID(this.id!).subscribe((adult: AdultDTO) =>{
         this.adult = adult;
-        this.adult.id = this.id!;
+        this.adult.adultID = this.id!;
       })
     });
 }

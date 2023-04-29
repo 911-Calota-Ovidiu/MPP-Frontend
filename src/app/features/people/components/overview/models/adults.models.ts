@@ -6,10 +6,10 @@ export interface Adult{
     eyecolor:string;
 }
 export interface AdultDTO{
-    id:number;
+    adultID:number;
     name:string;
     address:string;
     age:number;
     birthdate:string;
-    eyecolor:string;
+    eyeColor:string;
 }
