@@ -27,8 +27,8 @@ export class ApiService {
   deleteAdult(id:number):Observable<string>{
     return this.http.delete(this.address+`/adult/${id}`) as Observable<string>;
   }
-  updateAdult(adult:Adult,id:number): Observable<string>{
-    return this.http.put(this.address+`/adult/address`,adult) as Observable<string>;
+  updateAdult(adult:Adult,id?:number): Observable<string>{
+    return this.http.put(this.address+`/adult/${id}`,adult) as Observable<string>;
   }
   addAdult(adult:Adult): Observable<string>{
     return this.http.post(this.address+`/adult`,adult) as Observable<string>;

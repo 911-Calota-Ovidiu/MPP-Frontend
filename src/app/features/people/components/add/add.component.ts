@@ -9,23 +9,31 @@ import { Adult } from '../overview/models/adults.models';
   styleUrls: ['./add.component.css']
 })
 export class AddComponent {
-  name?:string;
+  aname?:string;
   age?:number;
   birthdate?:string;
   address?:string;
-  eyecolor?:string;
+  eyeColor?:string;
 
   constructor(private apiSvc:ApiService, private router:Router){}
-  addAdult(){
-    if(this.name&&this.age&&this.birthdate&&this.address&&this.eyecolor)
+  addNewAdult(){
+    if(this.aname&&this.age&&this.birthdate&&this.address&&this.eyeColor)
     {
       const adult:Adult={
-        name:this.name,
+        aname:this.aname,
         age:this.age,
         address:this.address,
-        eyecolor:this.eyecolor,
+        eyeColor:this.eyeColor,
         birthdate:this.birthdate
+        
       }
+      console.log(
+        adult.aname,
+        adult.age,
+        adult.address,
+        adult.eyeColor,
+        adult.birthdate
+        )
       this.apiSvc.addAdult(adult).subscribe(result=>{
         this.router.navigateByUrl('adults');
       }

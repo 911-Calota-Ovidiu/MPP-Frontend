@@ -1,9 +1,9 @@
 <h2>Add adult</h2>
-<form (submit)="addAdult()">
-    <label for="name">Name</label>
-    <input id = "name" name = "name" [(ngModel)]="name">
+<form (submit)="addNewAdult()">
+    <label for="aname">Name</label>
+    <input id = "aname" name = "aname" [(ngModel)]="aname">
     <br><br>
-    <label for="age">Agee</label>
+    <label for="age">Age</label>
     <input id = "age" name = "age" [(ngModel)]="age">
     <br><br>
     <label for="address">Address</label>
@@ -12,8 +12,8 @@
     <label for="birthdate">Birthdate</label>
     <input id = "birthdate" name = "birthdate" [(ngModel)]="birthdate">
     <br><br>
-    <label for="eyecolor">EyeColor</label>
-    <input id = "eyecolor" name = "eyecolor" [(ngModel)]="eyecolor">
+    <label for="eyeColor">EyeColor</label>
+    <input id = "eyeColor" name = "eyeColor" [(ngModel)]="eyeColor">
     <br><br>
     <button type="submit">Submit</button>
 </form>

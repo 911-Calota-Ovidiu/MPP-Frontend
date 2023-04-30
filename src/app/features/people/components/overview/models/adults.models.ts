@@ -1,9 +1,9 @@
 export interface Adult{
-    name:string;
+    aname:string;
     address:string;
     age:number;
     birthdate:string;
-    eyecolor:string;
+    eyeColor:string;
 }
 export interface AdultDTO{
     adultID:number;

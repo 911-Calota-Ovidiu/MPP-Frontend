@@ -27,11 +27,11 @@ const routes: Routes = [
     component:AddComponent
   },
   {
-    path:"adult/delete",
+    path:"adult/delete/:id",
     component:DeleteComponent
   },
   {
-    path:"adult/update",
+    path:"adult/update/:id",
     component:UpdateComponent
   },
   {
