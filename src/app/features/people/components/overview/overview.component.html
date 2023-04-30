@@ -3,19 +3,19 @@
 <table>
     <thead>
         <tr>
-            <th>ID</th>
+            <th>#</th>
             <th>NAME</th>
             <th>ADDRESS</th>
             <th (click)="sortBy('age')">AGE</th>
             <th>Actions</th>
             <th>
-                <button (click)="goToAdd()">Add</button>
+                <button (click)="goToAdd()" class="notPage">Add</button>
             </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let adult of adults;let i=index">
-            <td><a (click)="goToGetOne(adult.adultID)">{{ i+1 }}</a></td>
+            <td><a (click)="goToGetOne(adult.adultID)">{{ i }}</a></td>
             <td>{{adult.name}}</td>
             <td>{{adult.address}}</td>
             <td>{{adult.age}}</td>
@@ -24,4 +24,156 @@
         </tr>
     </tbody>
 </table>
-<button>1</button><button>2</button><button>3</button><button>4</button><button>5</button>
+
+
+<table class="pages">
+    
+    <div *ngIf="currentPage===1; else two">
+        <td>1</td>
+        <td *ngFor=" let num of [2,3,4,5,6]"><button (click)="goToPage(num)">{{num}}</button></td>
+        <td>...</td>
+        <td *ngFor=" let num of [pageCount-5,pageCount-4,pageCount-3,pageCount-2,pageCount-1]"><button (click)="goToPage(num)">{{num}}</button></td>
+    </div>
+    <ng-template #two>
+        <div *ngIf="currentPage===2; else three">
+            <td><button (click)="goToPage(1)">1</button></td>
+            <td>2</td>
+            <td *ngFor=" let num of [3,4,5,6,7]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td>...</td>
+                <td *ngFor=" let num of [pageCount-5,pageCount-4,pageCount-3,pageCount-2,pageCount-1]"><button (click)="goToPage(num)">{{num}}</button></td>
+        </div>
+    </ng-template>
+    <ng-template #three>
+        <div *ngIf="currentPage===3; else four">
+            <td *ngFor=" let num of [1,2]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td>3</td>
+            <td *ngFor=" let num of [4,5,6,7,8]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td>...</td>
+                <td *ngFor=" let num of [pageCount-5,pageCount-4,pageCount-3,pageCount-2,pageCount-1]"><button (click)="goToPage(num)">{{num}}</button></td>
+        </div>
+    </ng-template>
+    <ng-template #four>
+        <div *ngIf="currentPage===4; else five">
+            <td *ngFor=" let num of [1,2,3]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td>4</td>
+            <td *ngFor=" let num of [5,6,7, 8, 9]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td>...</td>
+                <td *ngFor=" let num of [pageCount-5,pageCount-4,pageCount-3,pageCount-2,pageCount-1]"><button (click)="goToPage(num)">{{num}}</button></td>
+        </div>
+    </ng-template>
+    <ng-template #five>
+        
+        <div *ngIf="currentPage===5; else six">
+            <td *ngFor=" let num of [1,2,3,4]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td>5</td>
+            <td *ngFor=" let num of [6,7, 8, 9,10]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td>...</td>
+                <td *ngFor=" let num of [pageCount-5,pageCount-4,pageCount-3,pageCount-2,pageCount-1]"><button (click)="goToPage(num)">{{num}}</button></td>
+        </div>
+    </ng-template>
+
+    <ng-template #six>
+    
+    <div *ngIf="currentPage===6; else seven">
+        <td *ngFor=" let num of [1,2,3,4,5]"><button (click)="goToPage(num)">{{num}}</button></td>
+        <td>6</td>
+        <td *ngFor=" let num of [7, 8, 9,10, 11]"><button (click)="goToPage(num)">{{num}}</button></td>
+        <td>...</td>
+            <td *ngFor=" let num of [pageCount-5,pageCount-4,pageCount-3,pageCount-2,pageCount-1]"><button (click)="goToPage(num)">{{num}}</button></td>
+    </div>
+    </ng-template>
+    <ng-template #seven>
+        <div *ngIf="currentPage===7; else eight">
+            <td *ngFor=" let num of [1,2,3,4,5]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td><button (click)="goToPage(6)">6</button></td>
+            <td>7</td>
+            <td *ngFor=" let num of [ 8, 9,10, 11,12]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td>...</td>
+            <td *ngFor=" let num of [pageCount-5,pageCount-4,pageCount-3,pageCount-2,pageCount-1]"><button (click)="goToPage(num)">{{num}}</button></td></div>
+    </ng-template>
+    <ng-template #eight>
+        <div *ngIf="currentPage===8; else nine">
+            <td *ngFor=" let num of [1,2,3,4,5]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td><button (click)="goToPage(6)">6</button></td>
+            <td><button (click)="goToPage(7)">7</button></td>
+            <td>8</td>
+            <td *ngFor=" let num of [ 9,10, 11,12,13]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td>...</td>
+    <td *ngFor=" let num of [pageCount-5,pageCount-4,pageCount-3,pageCount-2,pageCount-1]"><button (click)="goToPage(num)">{{num}}</button></td></div>
+    </ng-template>
+    <ng-template #nine>
+        <div *ngIf="currentPage===9; else ten">
+            <td *ngFor=" let num of [1,2,3,4,5]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td><button (click)="goToPage(6)">6</button></td>
+            <td><button (click)="goToPage(7)">7</button></td>
+            <td><button (click)="goToPage(8)">8</button></td>
+            <td>9</td>
+            <td *ngFor=" let num of [ 10, 11,12,13,14]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td>...</td>
+    <td *ngFor=" let num of [pageCount-5,pageCount-4,pageCount-3,pageCount-2,pageCount-1]"><button (click)="goToPage(num)">{{num}}</button></td></div>
+    </ng-template>
+    <ng-template #ten>
+        <div *ngIf="currentPage===10;else other">
+            <td *ngFor=" let num of [1,2,3,4,5]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td><button (click)="goToPage(6)">6</button></td>
+            <td><button (click)="goToPage(7)">7</button></td>
+            <td><button (click)="goToPage(8)">8</button></td>
+            <td><button (click)="goToPage(9)">9</button></td>
+            <td>10</td>
+            <td *ngFor=" let num of [ 11,12,13,14,15]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td>...</td>
+            <td *ngFor=" let num of [pageCount-5,pageCount-4,pageCount-3,pageCount-2,pageCount-1]"><button (click)="goToPage(num)">{{num}}</button></td></div>
+    </ng-template>
+    <ng-template #other>
+        <td *ngFor=" let num of [1,2,3,4,5]"><button (click)="goToPage(num)">{{num}}</button></td>
+        <td>...</td>
+        <div *ngIf="currentPage<pageCount-5 && currentPage>6;else minus5">
+        <td *ngFor=" let num of [currentPage-5,currentPage-4,currentPage-3,currentPage-2,currentPage-1]"><button (click)="goToPage(num)">{{num}}</button></td>
+        <td>{{currentPage}}</td>
+        <td *ngFor=" let num of [currentPage+1,currentPage+2,currentPage+3,currentPage+4,currentPage+5]"><button (click)="goToPage(num)">{{num}}</button></td>
+        <td>...</td>    
+        <td *ngFor=" let num of [pageCount-5,pageCount-4,pageCount-3,pageCount-2,pageCount-1]"><button (click)="goToPage(num)">{{num}}</button></td></div>
+    </ng-template>
+    <ng-template #minus5>
+        <div *ngIf="currentPage===pageCount-5;else minus4">
+            <td *ngFor=" let num of [currentPage-5,currentPage-4,currentPage-3,currentPage-2,currentPage-1]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td>{{pageCount-5}}</td>
+            <td><button (click)="goToPage(pageCount-4)">{{pageCount-4}}</button></td>
+            <td><button (click)="goToPage(pageCount-3)">{{pageCount-3}}</button></td>
+            <td><button (click)="goToPage(pageCount-2)">{{pageCount-2}}</button></td>
+            <td><button (click)="goToPage(pageCount-1)">{{pageCount-1}}</button></td>
+        </div>
+    </ng-template>
+    <ng-template #minus4>
+        <div *ngIf="currentPage===pageCount-4;else minus3">
+            <td *ngFor=" let num of [currentPage-5,currentPage-4,currentPage-3,currentPage-2,currentPage-1]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td>{{pageCount-4}}</td>
+            <td><button (click)="goToPage(pageCount-3)">{{pageCount-3}}</button></td>
+            <td><button (click)="goToPage(pageCount-2)">{{pageCount-2}}</button></td>
+            <td><button (click)="goToPage(pageCount-1)">{{pageCount-1}}</button></td>
+        </div>
+    </ng-template>
+    <ng-template #minus3>
+        <div *ngIf="currentPage===pageCount-3;else minus2">
+            <td *ngFor=" let num of [currentPage-5,currentPage-4,currentPage-3,currentPage-2,currentPage-1]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td>{{pageCount-3}}</td>
+            <td><button (click)="goToPage(pageCount-2)">{{pageCount-2}}</button></td>
+            <td><button (click)="goToPage(pageCount-1)">{{pageCount-1}}</button></td>
+        </div>
+    </ng-template>
+    <ng-template #minus2>
+        <div *ngIf="currentPage===pageCount-2;else minus1">
+            <td *ngFor=" let num of [currentPage-5,currentPage-4,currentPage-3,currentPage-2,currentPage-1]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td>{{pageCount-2}}</td>
+            <td><button (click)="goToPage(pageCount-1)">{{pageCount-1}}</button></td>
+        </div>
+    </ng-template>
+    <ng-template #minus1>
+        <div *ngIf="currentPage===pageCount-1">
+            <td *ngFor=" let num of [currentPage-5,currentPage-4,currentPage-3,currentPage-2,currentPage-1]"><button (click)="goToPage(num)">{{num}}</button></td>
+            <td>{{pageCount-1}}</td>
+        </div>
+    </ng-template>
+        
+    
+</table>

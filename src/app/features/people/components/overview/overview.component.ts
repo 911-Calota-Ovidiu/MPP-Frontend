@@ -11,9 +11,10 @@ import { Router } from '@angular/router';
 })
 export class OverviewComponent implements OnInit {
   adults:AdultDTO[]=[];
-
   orderedList:AdultDTO[];
-
+  adultCount:number=0;
+  pageCount:number=0;
+  currentPage:number=1;
   constructor(private apiSvc: ApiService,private router:Router){
     this.orderedList=this.adults;
   }
@@ -46,9 +47,19 @@ export class OverviewComponent implements OnInit {
   goToGetOne(id:number){
     this.router.navigateByUrl(`adult/${id}`)
   }
+  goToPage(page:number){
+    this.apiSvc.getAdultsPage(page).subscribe((result: AdultDTO[])=>{
+      this.adults=result;
+    });
+    this.currentPage=page;
+  }
   ngOnInit(): void {
     this.apiSvc.getAdults().subscribe((result: AdultDTO[])=>{
       this.adults=result;
+    });
+    this.apiSvc.getAdultCount().subscribe((result:number)=>{
+      this.adultCount=result;
+      this.pageCount=Math.ceil(result/50);
     });
   }
 }

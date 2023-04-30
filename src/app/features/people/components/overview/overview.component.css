@@ -6,3 +6,15 @@ table {
     border-spacing: 50px 0;
 
   }
+table.pages{
+    border-spacing: 0px 0;
+}
+button {
+    background-color: transparent;
+    border: none;
+    color: rgb(80, 80, 252);
+    cursor: pointer;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+  }

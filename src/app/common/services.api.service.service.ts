@@ -11,9 +11,15 @@ import { Child } from '../features/children/children.models';
 export class ApiService {
 
   constructor(private http:HttpClient) { }
-  address:string='https://MPPoriginal.mooo.com'
+  address:string='http://localhost:8080'
   getAdults(): Observable<AdultDTO[]>{
-    return this.http.get(this.address+'/adult/page/1') as Observable<AdultDTO[]>;
+    return this.http.get(this.address+'/adult/page/0') as Observable<AdultDTO[]>;
+  }
+  getAdultCount():Observable<number>{
+    return this.http.get(this.address+'/adult/count') as Observable<number>;
+  }
+  getAdultsPage(page:number):Observable<AdultDTO[]>{
+    return this.http.get(this.address+`/adult/page/${page}`) as Observable<AdultDTO[]>;
   }
   getAvgChildAger(): Observable<number>{
     return this.http.get(this.address+'/child/avg') as Observable<number>;
