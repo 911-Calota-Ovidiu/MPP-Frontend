@@ -87,7 +87,7 @@ export class ApiService {
     return this.http.post(this.address+`/family/child/${family}/${child}`,null) as Observable<string>;
   }
   addFriend(f1:number,f2:number): Observable<string>{
-    return this.http.post(this.address+`/friend/${f1}/${f2}`,null) as Observable<string>;
+    return this.http.post(this.address+`/friends/${f1}/${f2}`,null) as Observable<string>;
   }
   deleteFriend(id:number):Observable<string>{
     return this.http.delete(this.address+`/friends/${id}`) as Observable<string>;
