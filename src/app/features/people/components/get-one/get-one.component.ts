@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Adult, AdultDTO } from '../overview/models/adults.models';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/common/services.api.service.service';
@@ -8,9 +8,9 @@ import { ApiService } from 'src/app/common/services.api.service.service';
   templateUrl: './get-one.component.html',
   styleUrls: ['./get-one.component.css']
 })
-export class GetOneComponent {
+export class GetOneComponent implements OnInit{
   id?:number;
-  adult?:AdultDTO;
+  adult!: AdultDTO;
   constructor(private apiSvc: ApiService, private activatedRoute: ActivatedRoute){}
   ngOnInit(): void{
     this.activatedRoute.params.subscribe(params => {

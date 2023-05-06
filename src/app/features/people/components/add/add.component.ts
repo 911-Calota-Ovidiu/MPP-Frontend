@@ -14,11 +14,17 @@ export class AddComponent {
   birthdate?:string;
   address?:string;
   eyeColor?:string;
-
+  nameTooShort=false;
   constructor(private apiSvc:ApiService, private router:Router){}
   addNewAdult(){
     if(this.aname&&this.age&&this.birthdate&&this.address&&this.eyeColor)
     {
+      if(this.aname.length<=3)
+      {
+        this.nameTooShort=true;
+        return;
+      }
+      console.log("test was passed")
       const adult:Adult={
         aname:this.aname,
         age:this.age,
@@ -27,13 +33,6 @@ export class AddComponent {
         birthdate:this.birthdate
         
       }
-      console.log(
-        adult.aname,
-        adult.age,
-        adult.address,
-        adult.eyeColor,
-        adult.birthdate
-        )
       this.apiSvc.addAdult(adult).subscribe(result=>{
         this.router.navigateByUrl('adults');
       }

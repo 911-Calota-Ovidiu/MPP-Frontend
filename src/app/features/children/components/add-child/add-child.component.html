@@ -1,0 +1,19 @@
+<h2>Add child</h2>
+<form (submit)="addNewChild()">
+    <label for="name">Name</label>
+    <input id = "name" name = "name" [(ngModel)]="name"><div *ngIf="nameTooShort">Name is too short (min 4 characters)</div>
+    <br><br>
+    <label for="age">Age</label>
+    <input id = "age" name = "age" [(ngModel)]="age">
+    <br><br>
+    <label for="address">Address</label>
+    <input id = "address" name = "address" [(ngModel)]="address">
+    <br><br>
+    <label for="birthdate">Birthdate</label>
+    <input id = "birthdate" name = "birthdate" [(ngModel)]="birthdate">
+    <br><br>
+    <label for="eyeColor">EyeColor</label>
+    <input id = "eyeColor" name = "eyeColor" [(ngModel)]="eyeColor">
+    <br><br>
+    <button type="submit">Submit</button>
+</form>

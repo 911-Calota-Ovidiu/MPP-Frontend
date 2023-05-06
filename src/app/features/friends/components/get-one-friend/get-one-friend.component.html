@@ -1,0 +1,70 @@
+<h2>Info about friend</h2>
+<ng-container *ngIf="friend">
+
+    
+    <table>
+      <thead>
+        <tr>
+          <th  >ID</th>
+          <th  >First Friend ID</th>
+          <th  >Second Friend ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td  >{{ friend['id'] }}</td>
+          <td  >{{ friend['person'].childID }}</td>
+          <td  >{{ friend['friends'].childID }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Info about First Friend</h2>
+<ng-container *ngIf="friend">
+
+    
+    <table>
+      <thead>
+        <tr>
+          <th  >Name</th>
+          <th  >AGE</th>
+          <th  >Address</th>
+          <th  >Birthdate</th>
+          <th  >Eyecolor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td  >{{ friend['person'].name }}</td>
+          <td  >{{ friend['person'].age }}</td>
+          <td  >{{ friend['person'].address }}</td>
+          <td  >{{ friend['person'].birthdate }}</td>
+          <td  >{{ friend['person'].eyeColor }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Info about Second Friend</h2>
+    <ng-container *ngIf="friend">
+    
+        
+        <table>
+          <thead>
+            <tr>
+              <th  >Name</th>
+              <th  >Age</th>
+              <th  >Address</th>
+              <th  >Birthdate</th>
+              <th  >Eyecolor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td  >{{ friend['friends'].name }}</td>
+              <td  >{{ friend['friends'].age }}</td>
+              <td  >{{ friend['friends'].address }}</td>
+              <td  >{{ friend['friends'].birthdate }}</td>
+              <td  >{{ friend['friends'].eyeColor }}</td>
+            </tr>
+          </tbody>
+        </table>

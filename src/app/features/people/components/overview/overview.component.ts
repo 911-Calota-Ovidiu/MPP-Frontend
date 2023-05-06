@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Adult, AdultDTO } from './models/adults.models';
 import { ApiService } from 'src/app/common/services.api.service.service';
 import { Sort } from '@angular/material/sort';
@@ -20,7 +20,7 @@ export class OverviewComponent implements OnInit {
   }
 
   sortDirection = 'asc';
-
+  filterAge?:number;
   sortBy(propertyName: string) {
     this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
     const sortOrder = this.sortDirection === 'asc' ? 1 : -1;
@@ -54,12 +54,28 @@ export class OverviewComponent implements OnInit {
     this.currentPage=page;
   }
   ngOnInit(): void {
+
     this.apiSvc.getAdults().subscribe((result: AdultDTO[])=>{
       this.adults=result;
     });
     this.apiSvc.getAdultCount().subscribe((result:number)=>{
       this.adultCount=result;
       this.pageCount=Math.ceil(result/50);
+    });
+  }
+  onFilterClick()
+  {
+    if (this.filterAge){
+    this.loadAdults();}
+    else this.ngOnInit();
+  }
+  loadAdults() {
+    this.apiSvc.getAdultAgePage(this.filterAge,0).subscribe((result: AdultDTO[]) => {
+      this.adults = result;
+    });
+    this.apiSvc.getAdultAgeCount(this.filterAge).subscribe((result: number) => {
+      this.adultCount = result;
+      this.pageCount = Math.ceil(result / 50);
     });
   }
 }

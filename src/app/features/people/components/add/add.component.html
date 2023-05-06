@@ -1,8 +1,8 @@
 <h2>Add adult</h2>
 <form (submit)="addNewAdult()">
     <label for="aname">Name</label>
-    <input id = "aname" name = "aname" [(ngModel)]="aname">
-    <br><br>
+    <input id = "aname" name = "aname" [(ngModel)]="aname"> <div *ngIf="nameTooShort">Input name is too short (min 4 characters)</div>
+    
     <label for="age">Age</label>
     <input id = "age" name = "age" [(ngModel)]="age">
     <br><br>

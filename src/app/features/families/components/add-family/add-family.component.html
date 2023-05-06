@@ -1,0 +1,16 @@
+<h2>Add Family</h2>
+<form (submit)="addNewFamily()">
+    <label for="mom">Mom ID</label>
+    <input id = "mom" name = "mom" [(ngModel)]="mom">
+    <br><br>
+    <label for="dad">Dad ID</label>
+    <input id = "dad" name = "dad" [(ngModel)]="dad">
+    <br><br>
+    <label for="homeAddress">Address</label>
+    <input id = "homeAddress" name = "homeAddress" [(ngModel)]="homeAddress">
+    <br><br>
+    <label for="nrOfMembers">Number of Members</label>
+    <input id = "nrOfMembers" name = "nrOfMembers" [(ngModel)]="nrOfMembers">
+    <br><br>
+    <button type="submit">Submit</button>
+</form>

@@ -1,0 +1,26 @@
+<h2>Info about child</h2>
+<ng-container *ngIf="child">
+
+    
+    <table>
+      <thead>
+        <tr>
+          <th  >ID</th>
+          <th  >Name</th>
+          <th  >AGE</th>
+          <th  >Address</th>
+          <th  >Birthdate</th>
+          <th  >Eyecolor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td  >{{ child['childID'] }}</td>
+          <td  >{{ child['name'] }}</td>
+          <td  >{{ child['age'] }}</td>
+          <td  >{{ child['address'] }}</td>
+          <td  >{{ child['birthdate'] }}</td>
+          <td  >{{ child['eyeColor'] }}</td>
+        </tr>
+      </tbody>
+    </table>

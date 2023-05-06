@@ -1,0 +1,39 @@
+<h2>Info about family</h2>
+<ng-container *ngIf="family">
+
+    
+    <table>
+      <thead>
+        <tr>
+          <th  >ID</th>
+          <th  >Mom ID</th>
+          <th  >Dad ID</th>
+          <th  >Address</th>
+          <th  >Nr of Members</th>
+          <th><button (click)="goToAdd(family['famID'])">Add child to this family</button></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td  >{{ family['famID'] }}</td>
+          <td  >{{ family['mom'] }}</td>
+          <td  >{{ family['dad'] }}</td>
+          <td  >{{ family['homeAddress'] }}</td>
+          <td  >{{ family['nrOfMembers'] }}</td>
+        </tr>
+    </tbody>
+</table>
+<b>Children</b>
+<table>
+    <tbody>
+        <tr>
+            <td>#</td>
+            <td>Name</td>
+            <td>Address</td></tr>
+        <tr *ngFor="let child of family.children">
+            <td>{{child.childID}}</td>
+            <td>{{child.name}}</td>
+            <td>{{child.address}}</td>
+        </tr>
+      </tbody>
+    </table>
