@@ -13,7 +13,7 @@ import { Friend } from '../features/friends/friends.models';
 export class ApiService {
 
   constructor(private http:HttpClient) { }
-  address:string='https://mpporiginal.mooo.com'
+  address:string='http://mpporiginal.mooo.com'
   getAdults(): Observable<AdultDTO[]>{
     return this.http.get(this.address+'/adult/page/0') as Observable<AdultDTO[]>;
   }
@@ -59,7 +59,7 @@ export class ApiService {
     return this.http.get(this.address+`/child/${personId}`) as Observable<ChildDTO>
   }
   addChild(child:Child): Observable<string>{
-    return this.http.post(this.address+`/child/0/family`,child) as Observable<string>;
+    return this.http.post(this.address+`/child/1007/family`,child) as Observable<string>;
   }
   getFamiliesPage(page:number):Observable<FamilyDTO[]>{
     return this.http.get(this.address+`/family/page/${page}`) as Observable<FamilyDTO[]>;
