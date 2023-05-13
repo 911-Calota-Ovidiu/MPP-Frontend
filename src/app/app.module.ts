@@ -27,6 +27,7 @@ import { FriendsOverviewComponent } from './features/friends/components/friends-
 import { AddFriendComponent } from './features/friends/components/add-friend/add-friend.component';
 import { RemoveFriendComponent } from './features/friends/components/remove-friend/remove-friend.component';
 import { GetOneFriendComponent } from './features/friends/components/get-one-friend/get-one-friend.component';
+import { LoginComponent } from './features/user/login/login.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { GetOneFriendComponent } from './features/friends/components/get-one-fri
     FriendsOverviewComponent,
     AddFriendComponent,
     RemoveFriendComponent,
-    GetOneFriendComponent
+    GetOneFriendComponent,
+    LoginComponent
     
   ],
   imports: [

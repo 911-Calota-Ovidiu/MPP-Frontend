@@ -1,0 +1,19 @@
+:host {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0px;
+}
+
+mat-card {
+  min-width: 700px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.centered-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
