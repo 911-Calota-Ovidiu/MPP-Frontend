@@ -22,6 +22,11 @@ import { AddFriendComponent } from './features/friends/components/add-friend/add
 import { FriendsOverviewComponent } from './features/friends/components/friends-overview/friends-overview.component';
 import { GetOneFriendComponent } from './features/friends/components/get-one-friend/get-one-friend.component';
 import { RemoveFriendComponent } from './features/friends/components/remove-friend/remove-friend.component';
+import { LoginComponent } from './features/user/login/login.component';
+import { ProfileFormComponent } from './features/user/profile-form/profile-form.component';
+import { ProfileComponent } from './features/user/profile/profile.component';
+import { RegisterComponent } from './features/user/register/register.component';
+import { AdminBoardComponent } from './features/admin-board/admin-board.component';
 
 const routes: Routes = [
   {
@@ -111,6 +116,30 @@ const routes: Routes = [
   {
     path:"friends/add",
     component:AddFriendComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
+  },
+  {
+    path: 'profile/:username',
+    component: ProfileComponent
+  },
+  {
+    path: 'profile-edit',
+    component: ProfileFormComponent
+  },
+  { 
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'admin',
+    component: AdminBoardComponent
   }
 ];
 

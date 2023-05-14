@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ApiService } from 'src/app/common/services.api.service.service';
 import { Child, ChildDTO } from '../../children.models';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/common/user.service.service';
 
 @Component({
   selector: 'app-list-overview',
@@ -15,7 +16,8 @@ export class ListOverviewComponent {
   childCount:number=0;
   pageCount:number=0;
   currentPage:number=1;
-  constructor(private apiSvc: ApiService,private router:Router){
+  entPerPage:number=50;
+  constructor(private apiSvc: ApiService,private router:Router,private userService:UserService){
     this.orderedList=this.children;
   }
 
@@ -65,7 +67,10 @@ export class ListOverviewComponent {
     });
     this.apiSvc.getChildCount().subscribe((result:number)=>{
       this.childCount=result;
-      this.pageCount=Math.ceil(result/50);
+      this.userService.getEntitiesPerPage().subscribe((res:number)=>{
+        this.entPerPage=res;
+        this.pageCount=Math.ceil(result/res);
+      })
     });
   }
 }

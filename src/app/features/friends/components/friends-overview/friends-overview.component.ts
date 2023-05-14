@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Friend } from '../../friends.models';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/common/services.api.service.service';
+import { UserService } from 'src/app/common/user.service.service';
 
 @Component({
   selector: 'app-friends-overview',
@@ -13,8 +14,9 @@ export class FriendsOverviewComponent implements OnInit{
   friendCount:number=0;
   pageCount:number=0;
   currentPage:number=1;
+  entPerPage:number=50;
 
-  constructor(private apiSvc: ApiService,private router:Router){
+  constructor(private apiSvc: ApiService,private router:Router,private userService:UserService){
   }
   goToDelete(id:number){
     this.router.navigateByUrl(`friend/delete/${id}`);
@@ -37,7 +39,11 @@ export class FriendsOverviewComponent implements OnInit{
     });
     this.apiSvc.getFriendsCount().subscribe((result:number)=>{
       this.friendCount=result;
-      this.pageCount=Math.ceil(result/50);
+      this.userService.getEntitiesPerPage().subscribe((res:number)=>
+      {
+        this.entPerPage=res;
+        this.pageCount=Math.ceil(result/res); 
+      })
     });
   }
 }

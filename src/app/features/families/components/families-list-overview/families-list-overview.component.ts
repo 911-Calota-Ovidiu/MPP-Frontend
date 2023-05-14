@@ -3,6 +3,7 @@ import { FamilyDTO } from '../families.models';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/common/services.api.service.service';
 import { AdultDTO } from 'src/app/features/people/components/overview/models/adults.models';
+import { UserService } from 'src/app/common/user.service.service';
 
 @Component({
   selector: 'app-families-list-overview',
@@ -14,7 +15,8 @@ export class FamiliesListOverviewComponent implements OnInit{
   adultCount:number=0;
   pageCount:number=0;
   currentPage:number=1;
-  constructor(private apiSvc: ApiService,private router:Router){
+  entPerPage:number=50;
+  constructor(private apiSvc: ApiService,private router:Router,private userService:UserService){
   }
   goToDelete(id:number){
     this.router.navigateByUrl(`family/delete/${id}`);
@@ -40,7 +42,11 @@ export class FamiliesListOverviewComponent implements OnInit{
     });
     this.apiSvc.getFamilyCount().subscribe((result:number)=>{
       this.adultCount=result;
-      this.pageCount=Math.ceil(result/10);
+      this.userService.getEntitiesPerPage().subscribe((res:number)=>
+      {
+        this.entPerPage=res;
+        this.pageCount=Math.ceil(result/res);
+      })
     });
   }
 }

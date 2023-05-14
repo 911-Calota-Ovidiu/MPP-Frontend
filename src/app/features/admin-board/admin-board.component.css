@@ -1,0 +1,14 @@
+.centered-label {
+    display: block;
+    text-align: center;
+}
+
+.container-custom {
+    max-width: 80%;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

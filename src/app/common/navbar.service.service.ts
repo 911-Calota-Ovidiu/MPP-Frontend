@@ -1,60 +1,28 @@
-import { Injectable } from "@angular/core";
-import { User, UserProfile, UserProfileUpdate, UserAdminPage } from "src/app/common/user.model";
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
-import { HttpClient } from "@angular/common/http";
+@Injectable({
+  providedIn: 'root'
+})
+export class NavbarService {
+  private loginSubject = new Subject();
+  private logoutSubject = new Subject();
 
-import { Observable } from "rxjs";
+  constructor() { }
 
-@Injectable()
-export class UserService {
+  public login() {
+    this.loginSubject.next("");
+  }
 
-    // private baseUrl = "http://localhost:8080/api/";
-    private baseUrl = "https://racemasters.minecraftnoob.com/api/";
+  public logout() {
+    this.logoutSubject.next("");
+  }
 
-    constructor(private httpClient: HttpClient) { }
+  public getLoginObservable() {
+    return this.loginSubject.asObservable();
+  }
 
-    getUserByUsername(username: string): Observable<User> {
-      return this.httpClient.get(this.baseUrl + "user/" + username) as Observable<User>;
-    }
-
-    getUserProfileById(userId: string): Observable<UserProfile> {
-      return this.httpClient.get(this.baseUrl + "user-profile-id/" + userId) as Observable<UserProfile>;
-    }
-    
-    getUserProfileByUsername(username: string): Observable<UserProfile> {
-      return this.httpClient.get(this.baseUrl + "user-profile-username/" + username) as Observable<UserProfile>;
-    } 
-
-    getUsersByName(username: string): Observable<UserAdminPage[]> {
-      return this.httpClient.get(this.baseUrl + "user-search?username=" + username) as Observable<UserAdminPage[]>;
-    }
-
-    getNumberOfCars(id: string): Observable<Number> {
-      return this.httpClient.get(this.baseUrl + "user-number-cars/" + id) as Observable<Number>;
-    }
-
-    getNumberOfPilots(id: string): Observable<Number> {
-      return this.httpClient.get(this.baseUrl + "user-number-pilots/" + id) as Observable<Number>;
-    }  
-
-    getNumberOfRaces(id: string): Observable<Number> {
-      return this.httpClient.get(this.baseUrl + "user-number-races/" + id) as Observable<Number>;
-    }
-    
-    updateUserProfile(race: UserProfileUpdate, id: string) {
-      return this.httpClient.put(this.baseUrl + "user-profile/" + id, race)
-    }
-
-    updateUserRoles(id: string, roles: any) {
-      return this.httpClient.put(this.baseUrl + "user-roles/" + id, roles)
-    }
-
-    changeEntitiesPerPage(entitiesPerPage: number): Observable<number> {
-      return this.httpClient.post(this.baseUrl + "modify-entities-per-page", {"entitiesPerPage": entitiesPerPage}) as Observable<number>;
-    }
-
-    getEntitiesPerPage(): Observable<number> {
-      return this.httpClient.get(this.baseUrl + "get-entities-per-page") as Observable<number>;
-    }
-
+  public getLogoutObservable() {
+    return this.logoutSubject.asObservable();
+  }
 }

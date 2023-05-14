@@ -12,7 +12,7 @@ import { AddComponent } from './features/people/components/add/add.component';
 import { DeleteComponent } from './features/people/components/delete/delete.component';
 import { UpdateComponent } from './features/people/components/update/update.component';
 import { GetOneComponent } from './features/people/components/get-one/get-one.component'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddChildComponent } from './features/children/components/add-child/add-child.component';
 import { DeleteChildComponent } from './features/children/components/delete-child/delete-child.component';
 import { UpdateChildComponent } from './features/children/components/update-child/update-child.component';
@@ -28,6 +28,24 @@ import { AddFriendComponent } from './features/friends/components/add-friend/add
 import { RemoveFriendComponent } from './features/friends/components/remove-friend/remove-friend.component';
 import { GetOneFriendComponent } from './features/friends/components/get-one-friend/get-one-friend.component';
 import { LoginComponent } from './features/user/login/login.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import {MatTabsModule } from '@angular/material/tabs';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { NavbarComponent } from './features/shared/navbar/navbar.component';
+import { ProfileFormComponent } from './features/user/profile-form/profile-form.component';
+import { ProfileComponent } from './features/user/profile/profile.component';
+import { RegisterComponent } from './features/user/register/register.component';
+import { AdminBoardComponent } from './features/admin-board/admin-board.component';
+import { UserService } from './common/user.service.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -54,16 +72,33 @@ import { LoginComponent } from './features/user/login/login.component';
     AddFriendComponent,
     RemoveFriendComponent,
     GetOneFriendComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent,
+    ProfileFormComponent,
+    ProfileComponent,
+    RegisterComponent,
+    AdminBoardComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatSelectModule,
+    MatAutocompleteModule,
+    MatCardModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

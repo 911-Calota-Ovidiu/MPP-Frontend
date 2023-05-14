@@ -2,10 +2,14 @@ import { Injectable } from "@angular/core";
 import { User, UserProfile, UserProfileUpdate, UserAdminPage } from "src/app/common/user.model";
 import { SQLResponse } from "src/app/common/user.model";
 
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHandler, HttpHeaders } from "@angular/common/http";
 
 import { Observable } from "rxjs";
-
+const USER_KEY = 'auth-user';
+      const user = window.sessionStorage.getItem(USER_KEY);
+      const parsedUser = user ? JSON.parse(user) : null;
+      const jwtToken = parsedUser ? parsedUser.jwtToken : null; 
+      const headers=new HttpHeaders().set('Authorization',jwtToken)
 @Injectable()
 export class UserService {
 
@@ -30,28 +34,34 @@ export class UserService {
       return this.httpClient.get(this.baseUrl + "user-search?username=" + username) as Observable<UserAdminPage[]>;
     }
 
-    getNumberOfCars(id: string): Observable<Number> {
-      return this.httpClient.get(this.baseUrl + "user-number-cars/" + id) as Observable<Number>;
+    getNumberOfAdults(id: string): Observable<Number> {
+      return this.httpClient.get(this.baseUrl + "user-number-adults/" + id) as Observable<Number>;
     }
 
-    getNumberOfPilots(id: string): Observable<Number> {
-      return this.httpClient.get(this.baseUrl + "user-number-pilots/" + id) as Observable<Number>;
+    getNumberOfChildren(id: string): Observable<Number> {
+      return this.httpClient.get(this.baseUrl + "user-number-children/" + id) as Observable<Number>;
     }  
 
-    getNumberOfRaces(id: string): Observable<Number> {
-      return this.httpClient.get(this.baseUrl + "user-number-races/" + id) as Observable<Number>;
+    getNumberOfFamilies(id: string): Observable<Number> {
+      return this.httpClient.get(this.baseUrl + "user-number-families/" + id) as Observable<Number>;
     }
-    
-    updateUserProfile(race: UserProfileUpdate, id: string) {
-      return this.httpClient.put(this.baseUrl + "user-profile/" + id, race)
+    getNumberOfFriends(id: string): Observable<Number> {
+      return this.httpClient.get(this.baseUrl + "user-number-friends/" + id) as Observable<Number>;
+    }
+    updateUserProfile(user: UserProfileUpdate, id: number) {
+      console.log(id)
+
+      return this.httpClient.put(this.baseUrl + "user-profile/" + id, user)
     }
 
     updateUserRoles(id: string, roles: any) {
-      return this.httpClient.put(this.baseUrl + "user-roles/" + id, roles)
+
+      return this.httpClient.put(this.baseUrl + "user-roles/" + id, roles,{headers})
+      
     }
 
     changeEntitiesPerPage(entitiesPerPage: number): Observable<number> {
-      return this.httpClient.post(this.baseUrl + "modify-entities-per-page", {"entitiesPerPage": entitiesPerPage}) as Observable<number>;
+      return this.httpClient.post(this.baseUrl + `modify-entities-per-page/${entitiesPerPage}`,null) as Observable<number>;
     }
 
     getEntitiesPerPage(): Observable<number> {
