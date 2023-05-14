@@ -14,7 +14,7 @@ const USER_KEY = 'auth-user';
 export class UserService {
 
     // private baseUrl = "http://localhost:8080/api/";
-    private baseUrl = "https://mpporiginal.mooo.com/";
+    private baseUrl = "https://mpporiginal.mooo.com/api/";
 
     constructor(private httpClient: HttpClient) { }
 
