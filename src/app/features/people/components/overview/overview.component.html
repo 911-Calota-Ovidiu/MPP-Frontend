@@ -9,12 +9,12 @@
             <th (click)="sortBy('age')">AGE</th>
             <th colspan="2">Actions</th>
             <th>
-                <button (click)="goToAdd()" class="btn btn-primary">Add</button>
+                <button mat-raised-button (click)="goToAdd()" class="btn btn-primary">Add</button>
             </th>
             <th>
                 <input type="text" placeholder="Filter by age" [(ngModel)]="filterAge">
             </th>
-            <th><button (click)="onFilterClick()">Filter</button></th>
+            <th><button mat-raised-button (click)="onFilterClick()">Filter</button></th>
         </tr>
     </thead>
     <tbody>
@@ -23,8 +23,8 @@
             <td>{{adult.name}}</td>
             <td>{{adult.address}}</td>
             <td>{{adult.age}}</td>
-            <td class="cellText"><button (click)="goToUpdate(adult.adultID)">Update Adult</button></td>
-            <td class="cellText"><button (click)="goToDelete(adult.adultID)">Delete Adult</button></td>
+            <td class="cellText"><button mat-raised-button (click)="goToUpdate(adult.adultID)">Update Adult</button></td>
+            <td class="cellText"><button mat-raised-button (click)="goToDelete(adult.adultID)">Delete Adult</button></td>
         </tr>
     </tbody>
 </table>

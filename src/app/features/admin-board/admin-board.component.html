@@ -1,5 +1,7 @@
 <div class="container container-custom">
-<h1 style="text-align: center;">Users</h1>
+    <mat-tab-group>
+        <mat-tab label="Users">
+
             <div class="container container-fluid mt-5 mb-5 container-custom">
 
                 <label class="centered-label p-4">
@@ -54,7 +56,7 @@
 
                 <section [formGroup]="roles">
                     <h3> Edit user {{ selectedOption }} roles: </h3>
-                    <p><mat-checkbox formControlName="user">User</mat-checkbox></p>
+                    <p><mat-checkbox style="color:black;" formControlName="user">User</mat-checkbox></p>
                     <p><mat-checkbox formControlName="moderator">Moderator</mat-checkbox></p>
                     <p><mat-checkbox formControlName="admin">Admin</mat-checkbox></p>
                 </section>
@@ -64,5 +66,49 @@
             </div>
 
         </div>
+        </mat-tab>
 
+        <mat-tab label="Entities"> 
+
+            <div class="container container-fluid mt-5 mb-5 container-custom">
+                <div class="row">
+            
+                    <div class="col-lg-3 col-md-6 mt-5">
+                        <h5>Inserts:</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item insert" (click)="insertAll()">INSERT ALL</li>
+                            <li class="list-group-item insert" (click)="insertAdults()">INSERT ADULTS</li>
+                            <li class="list-group-item insert" (click)="insertChildren()">INSERT CHILDREN</li>
+                            <li class="list-group-item insert" (click)="insertFamilies()">INSERT FAMILIES</li>
+                            <li class="list-group-item insert" (click)="insertFriends()">INSERT FRIENDS</li>
+                        </ul>
+                    </div>
+            
+                    <div class="col-lg-3 col-md-6 mt-5">
+                        <h5>Deletes:</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item delete" (click)="deleteAll()">DELETE ALL</li>
+                            <li class="list-group-item delete" (click)="deleteAdults()">DELETE ADULTS</li>
+                            <li class="list-group-item delete" (click)="deleteChildren()">DELETE CHILDREN</li>
+                            <li class="list-group-item delete" (click)="deleteFamilies()">DELETE FAMILIES</li>
+                            <li class="list-group-item delete" (click)="deleteFriends()">DELETE FRIENDS</li>
+                        </ul>
+                    </div>
+            
+                    <div class="col-lg-6 col-md-12 mt-5 text-end">
+                        <div class="console text-start">
+                            <div class="header">Console</div>
+                            <div class="output">
+                                <div *ngFor="let message of messages">{{message}}</div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary mt-3" (click)="clearConsole()">Clear console</button>
+                    </div>
+            
+                </div>
+            </div>
+            
+        </mat-tab>
+
+    </mat-tab-group>
 </div>

@@ -6,8 +6,9 @@ import { debounceTime, Subject } from 'rxjs';
 
 import { Router } from '@angular/router';
 import { StorageService } from 'src/app/common/storage.service.service';
-import { User, UserAdminPage } from 'src/app/common/user.model';
+import { SQLResponse, User, UserAdminPage } from 'src/app/common/user.model';
 import { UserService } from 'src/app/common/user.service.service';
+import { SqlService } from 'src/app/common/sqlservice.service';
 
 
 @Component({
@@ -38,6 +39,7 @@ export class AdminBoardComponent implements OnInit{
     private userService: UserService,
     private router: Router,
     private formBuilder: FormBuilder,
+    private sqlService:SqlService
   ) {}
 
   ngOnInit() {
@@ -127,5 +129,183 @@ export class AdminBoardComponent implements OnInit{
       },
       (error) => { alert(error) });
   }
+  messages: string[] = [];
+
+  deleteAdults() {
+    this.messages.push('Deleting adults...');
+    this.sqlService.deleteAllAdults().subscribe({
+      next: (message: SQLResponse) => {
+        this.messages.push(message.message);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+      complete: () => {},
+    });
+  }
+
+  insertAdults() {
+    this.messages.push('Inserting adults...');
+    this.sqlService.insertAllAdults().subscribe({
+      next: (message: SQLResponse) => {
+        this.messages.push(message.message);
+      },
+      error: (error) => {},
+      complete: () => {},
+    });
+  }
+
+  deleteChildren() {
+    this.messages.push('Deleting children...');
+    this.sqlService.deleteAllChildren().subscribe({
+      next: (message: SQLResponse) => {
+        this.messages.push(message.message);
+      },
+      error: (error) => {},
+      complete: () => {},
+    });
+  }
+
+  insertChildren() {
+    this.messages.push('Inserting children...');
+    this.sqlService.insertAllChildren().subscribe({
+      next: (message: SQLResponse) => {
+        this.messages.push(message.message);
+      },
+      error: (error) => {},
+      complete: () => {},
+    });
+  }
+
+  deleteFamilies() {
+    this.messages.push('Deleting families...');
+    this.sqlService.deleteAllFamilies().subscribe({
+      next: (message: SQLResponse) => {
+        this.messages.push(message.message);
+      },
+      error: (error) => {},
+      complete: () => {},
+    });
+  }
+
+  insertFamilies() {
+    this.messages.push('Inserting families...');
+    this.sqlService.insertAllFamilies().subscribe({
+      next: (message: SQLResponse) => {
+        this.messages.push(message.message);
+      },
+      error: (error) => {},
+      complete: () => {},
+    });
+  }
+
+  deleteFriends() {
+    this.messages.push('Deleting friends...');
+    this.sqlService.deleteAllFriends().subscribe({
+      next: (message: SQLResponse) => {
+        this.messages.push(message.message);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+      complete: () => {},
+    });
+  }
+
+  insertFriends() {
+    this.messages.push('Inserting friends...');
+    this.sqlService.insertAllFriends().subscribe({
+      next: (message: SQLResponse) => {
+        this.messages.push(message.message);
+      },
+      error: (error) => {},
+      complete: () => {},
+    });
+  }
+
+  deleteAll() {
+    this.messages.push('Deleting friends...');
+    this.sqlService.deleteAllFriends().subscribe({
+      next: (message: SQLResponse) => {
+        this.messages.push(message.message);
+      },
+      error: (error) => {},
+      complete: () => {
+        this.messages.push('Deleting adults...');
+        this.sqlService.deleteAllAdults().subscribe({
+          next: (message: SQLResponse) => {
+            this.messages.push(message.message);
+          },
+          error: (error) => {
+            console.log(error);
+          },
+          complete: () => {
+            this.messages.push('Deleting children...');
+            this.sqlService.deleteAllChildren().subscribe({
+              next: (message: SQLResponse) => {
+                this.messages.push(message.message);
+              },
+              error: (error) => {},
+              complete: () => {
+                this.messages.push('Deleting families...');
+                this.sqlService.deleteAllFamilies().subscribe({
+                  next: (message: SQLResponse) => {
+                    this.messages.push(message.message);
+                  },
+                  error: (error) => {
+                    console.log(error);
+                  },
+                  complete: () => {},
+                });
+              },
+            });
+          },
+        });
+      },
+    });
+  }
+
+  insertAll() {
+    this.messages.push('Inserting adults...');
+    this.sqlService.insertAllAdults().subscribe({
+      next: (message: SQLResponse) => {
+        this.messages.push(message.message);
+      },
+      error: (error) => {},
+      complete: () => {
+        this.messages.push('Inserting children...');
+        this.sqlService.insertAllChildren().subscribe({
+          next: (message: SQLResponse) => {
+            this.messages.push(message.message);
+          },
+          error: (error) => {},
+          complete: () => {
+            this.messages.push('Inserting families...');
+            this.sqlService.insertAllFamilies().subscribe({
+              next: (message: SQLResponse) => {
+                this.messages.push(message.message);
+              },
+              error: (error) => {},
+              complete: () => {
+                this.messages.push('Inserting friends...');
+                this.sqlService.insertAllFriends().subscribe({
+                  next: (message: SQLResponse) => {
+                    this.messages.push(message.message);
+                  },
+                  error: (error) => {},
+                  complete: () => {},
+                });
+              },
+            });
+          },
+        });
+      },
+    });
+  }
+
+  clearConsole() {
+    this.messages = [];
+  }
 
 }
+

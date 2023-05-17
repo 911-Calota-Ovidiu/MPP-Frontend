@@ -9,7 +9,7 @@
             <th>Address</th>
             <th colspan="2">Actions</th>
             <th>
-                <button (click)="goToAdd()" class="notPage">Add</button>
+                <button mat-raised-button (click)="goToAdd()" class="notPage">Add</button>
             </th>
         </tr>
     </thead>
@@ -19,8 +19,8 @@
             <td>{{family.mom}}</td>
             <td>{{family.dad}}</td>
             <td>{{family.homeAddress}}</td>
-            <td class="cellText"><button (click)="goToUpdate(family.famID)">Update Family</button></td>
-            <td class="cellText"><button (click)="goToDelete(family.famID)">Delete Family</button></td>
+            <td class="cellText"><button mat-raised-button (click)="goToUpdate(family.famID)">Update Family</button></td>
+            <td class="cellText"><button mat-raised-button (click)="goToDelete(family.famID)">Delete Family</button></td>
         </tr>
     </tbody>
 </table>

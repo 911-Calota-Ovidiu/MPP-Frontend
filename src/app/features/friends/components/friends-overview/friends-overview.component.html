@@ -7,7 +7,7 @@
             <th>First Child #</th>
             <th>Second Child #</th>
             <th >Actions</th>
-            <th class="cellText"><button (click)="goToAdd()" class="notPage">Add friend</button></th>
+            <th class="cellText"><button mat-raised-button (click)="goToAdd()" class="notPage">Add friend</button></th>
             <th>
                 
             </th>
@@ -18,7 +18,7 @@
             <td><a (click)="goToGetOne(friend.id)">{{ i }}</a></td>
             <td>{{friend.person.childID}}</td>
             <td>{{friend.friends.childID}}</td>
-            <td class="cellText"><button (click)="goToDelete(friend.id)">Delete friend</button></td>
+            <td class="cellText"><button mat-raised-button (click)="goToDelete(friend.id)">Delete friend</button></td>
         </tr>
     </tbody>
 </table>

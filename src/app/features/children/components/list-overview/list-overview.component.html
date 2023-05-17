@@ -10,10 +10,10 @@
             <th colspan="2">Actions</th>
             
             <th>
-                <button (click)="goToAdd()" class="notPage">Add</button>
+                <button mat-raised-button (click)="goToAdd()" class="notPage">Add</button>
             </th>
             <th>
-                <button (click)="goToStatistics()" >Statistics</button>
+                <button mat-raised-button (click)="goToStatistics()" >Statistics</button>
             </th>
         </tr>
     </thead>
@@ -23,8 +23,8 @@
             <td>{{child.name}}</td>
             <td>{{child.address}}</td>
             <td>{{child.age}}</td>
-            <td class="cellText"><button (click)="goToUpdate(child.childID)">Update Child</button></td>
-            <td class="cellText"><button (click)="goToDelete(child.childID)">Delete Child</button></td>
+            <td class="cellText"><button mat-raised-button (click)="goToUpdate(child.childID)">Update Child</button></td>
+            <td class="cellText"><button mat-raised-button (click)="goToDelete(child.childID)">Delete Child</button></td>
         
         </tr>
     </tbody>

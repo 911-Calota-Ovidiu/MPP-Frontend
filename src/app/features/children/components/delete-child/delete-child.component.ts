@@ -27,4 +27,8 @@ export class DeleteChildComponent {
       ,(err)=>{console.log("ERROR!")})
     }
   }
+  goBack()
+  {
+    this.router.navigateByUrl(`children`);
+  }
 }

@@ -14,7 +14,6 @@ export class DeleteComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
       this.adultID=params['id'];
-      this.deleteAdult();
     });
   }
   deleteAdult()
@@ -23,8 +22,13 @@ export class DeleteComponent implements OnInit {
     {
       this.apiSvc.deleteAdult(this.adultID).subscribe(mess=>{
         console.log(mess);
+        this.router.navigateByUrl(`adults`);
       }
       ,(err)=>{console.log("ERROR!")})
     }
+  }
+  goBack()
+  {
+    this.router.navigateByUrl(`adults`);
   }
 }

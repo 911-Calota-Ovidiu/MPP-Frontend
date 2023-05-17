@@ -14,7 +14,6 @@ export class RemoveFriendComponent {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
       this.friendID=params['id'];
-      this.deletefriend();
     });
   }
   deletefriend()
@@ -23,8 +22,14 @@ export class RemoveFriendComponent {
     {
       this.apiSvc.deleteFriend(this.friendID).subscribe(mess=>{
         console.log(mess);
+        this.router.navigateByUrl(`friends`);
+
       }
       ,(err)=>{console.log("ERROR!")})
     }
+  }
+  goBack()
+  {
+    this.router.navigateByUrl(`friends`);
   }
 }

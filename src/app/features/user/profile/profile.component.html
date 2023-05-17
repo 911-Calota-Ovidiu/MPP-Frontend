@@ -11,7 +11,7 @@
                 <img src="https://thumbs.dreamstime.com/z/default-avatar-profile-icon-grey-photo-placeholder-women-default-avatar-profile-icon-grey-photo-placeholder-illustrations-vectors-99724605.jpg"
                   alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
                   style="width: 150px; z-index: 1" *ngIf="!isUserMale()">
-                <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
+                <button mat-raised-button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
                   style="z-index: 1;"
                   *ngIf="isProfileEditable()"
                   (click)="navigateToProfileEdit()">
