@@ -2,6 +2,7 @@ describe('template spec', () => {
   it('passes', () => {
     cy.visit('https://main--mppateveryone.netlify.app/')
     cy.get("#adultButton").should('exist').click();
-    cy.get("#getOne({{}}")
+    cy.wait(1500);
+    cy.get("#getOne-0");
   })
 })
