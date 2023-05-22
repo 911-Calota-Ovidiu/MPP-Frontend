@@ -19,7 +19,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let adult of adults;let i=index">
-            <td><a id="getOne" (click)="goToGetOne(adult.adultID)">{{ i }}</a></td>
+            <td><a id="getOne({{adult.adultID}})" (click)="goToGetOne(adult.adultID)">{{ i }}</a></td>
             <td>{{adult.name}}</td>
             <td>{{adult.address}}</td>
             <td>{{adult.age}}</td>
