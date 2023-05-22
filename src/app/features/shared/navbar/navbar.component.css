@@ -51,3 +51,6 @@
 .main-dropdown-menu-item:hover {
     animation: shine 1s forwards;
 }
+#adultButton{
+    color: #fff;
+}

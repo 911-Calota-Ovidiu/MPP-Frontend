@@ -11,13 +11,13 @@
           <li class="nav-item px-1 mx-2" *ngIf="showAdminBoard" [ngClass]="getLinkStyle()">
             <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
           </li>
-
+          <table>
           <a routerLink="" class="nav-link">Home</a>&nbsp;
-      <a routerLink="adults" class="nav-link">Adults</a>&nbsp;
-      <a routerLink="children" class="nav-link">Children</a>&nbsp;
-      <a routerLink="families" class="nav-link">Families</a>&nbsp;
-      <a routerLink="friends" class="nav-link">Friends</a>&nbsp;
-
+      <th><a id="adultButton" routerLink="adults" class="nav-link">Adults</a>&nbsp;</th>
+        <th><a routerLink="children" class="nav-link">Children</a>&nbsp;</th>
+          <th><a routerLink="families" class="nav-link">Families</a>&nbsp;</th>
+            <th><a routerLink="friends" class="nav-link">Friends</a>&nbsp;</th>
+</table>  
           <ul class="navbar-nav ml-auto px-1" *ngIf="!isLoggedIn" style="margin-right: 160px">
             <li class="nav-item mx-2" [ngClass]="getLinkStyle()">
               <a class="nav-link" routerLink="profile"> Guest </a>
