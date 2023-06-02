@@ -5,3 +5,6 @@ mat-form-field {
 .custom-textarea {
     min-height: 170px;
 }
+a{
+    color:blue;
+}

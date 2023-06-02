@@ -14,7 +14,6 @@ export class DeleteChildComponent {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
       this.childID=params['id'];
-      this.deleteChild();
     });
   }
   deleteChild()
@@ -23,6 +22,8 @@ export class DeleteChildComponent {
     {
       this.apiSvc.deleteChild(this.childID).subscribe(mess=>{
         console.log(mess);
+        this.router.navigateByUrl(`children`);
+
       }
       ,(err)=>{console.log("ERROR!")})
     }

@@ -65,5 +65,14 @@ export class ProfileFormComponent implements OnInit {
   onBackToHomePage() {
     this.router.navigate(['/home-page'])
   }
+  generateBio(){
+    this.userService.getBio().subscribe((response:any)=>
+    {
 
+      if(this.userProfile){
+        this.userProfile.bio=response.text;
+        console.log(response.text)
+      }
+    })
+  }
 }

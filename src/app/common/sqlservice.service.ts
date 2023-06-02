@@ -12,7 +12,7 @@ import { SQLResponse } from './user.model';
 })
 export class SqlService {
 
-    // private baseUrl = "http://localhost:8080/api/admin";
+    //private baseUrl = "http://localhost:8080/api/admin";
     private baseUrl = "https://mpporiginal.mooo.com/api";
 
     constructor(private httpClient: HttpClient) { }

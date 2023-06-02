@@ -5,6 +5,7 @@ import { SQLResponse } from "src/app/common/user.model";
 import { HttpClient, HttpHandler, HttpHeaders } from "@angular/common/http";
 
 import { Observable } from "rxjs";
+import { observableToBeFn } from "rxjs/internal/testing/TestScheduler";
 const USER_KEY = 'auth-user';
       const user = window.sessionStorage.getItem(USER_KEY);
       const parsedUser = user ? JSON.parse(user) : null;
@@ -66,6 +67,9 @@ export class UserService {
 
     getEntitiesPerPage(): Observable<number> {
       return this.httpClient.get(this.baseUrl + "get-entities-per-page") as Observable<number>;
+    }
+    getBio(): Observable<string>{
+      return this.httpClient.get(this.baseUrl+"user/gpt") as Observable<string>;
     }
 
 }

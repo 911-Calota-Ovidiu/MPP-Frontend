@@ -23,7 +23,6 @@ export class RemoveFriendComponent {
       this.apiSvc.deleteFriend(this.friendID).subscribe(mess=>{
         console.log(mess);
         this.router.navigateByUrl(`friends`);
-
       }
       ,(err)=>{console.log("ERROR!")})
     }

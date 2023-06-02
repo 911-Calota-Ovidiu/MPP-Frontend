@@ -14,7 +14,6 @@ export class DeleteFamilyComponent {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
       this.familyID=params['id'];
-      this.deletefamily();
     });
   }
   deletefamily()
@@ -23,6 +22,8 @@ export class DeleteFamilyComponent {
     {
       this.apiSvc.deleteFamily(this.familyID).subscribe(mess=>{
         console.log(mess);
+        this.router.navigateByUrl(`families`);
+
       }
       ,(err)=>{console.log("ERROR!")})
     }

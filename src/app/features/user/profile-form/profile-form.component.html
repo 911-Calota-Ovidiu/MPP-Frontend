@@ -34,10 +34,10 @@
         <div class="form-group p-2">
             <mat-form-field appearance="outline">
               <mat-label>Bio</mat-label>
-              <textarea matInput name="bio" [(ngModel)]="userProfile.bio" class="custom-textarea"></textarea>
+              <textarea id="bio" matInput name="bio" [(ngModel)]="userProfile.bio" class="custom-textarea"></textarea>
             </mat-form-field>
           </div>
-          
+          <p>Don't want to write a full bio by yourself? Click <a (click)="generateBio()" class="no-underline">here</a> get an automatically generated one!
           <button mat-raised-button type="submit" class="btn btn-success mt-4 d-flex flex-column">Update</button>
           <button mat-raised-button type="button" class="btn btn-danger mt-2" (click)="onBackToProfilePage()"> Abort changes </button>
           
